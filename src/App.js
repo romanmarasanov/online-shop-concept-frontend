@@ -1,12 +1,12 @@
+import { BrowserRouter } from 'react-router-dom';
+import { AppRoutes } from './routes/routes';
 import './App.css';
 
 const App = () => {
   return (
-    <div className="container">
-      <div className="container">
-        Hello Neoflex!
-      </div>
-    </div>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
   );
 }
 
