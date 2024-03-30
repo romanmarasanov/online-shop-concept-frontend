@@ -1,0 +1,46 @@
+
+.container {
+	display: flex;
+	justify-content: space-between;
+	height: 4rem;
+	align-items: center;
+}
+.serviceTitleBlock {
+	
+}
+.serviceTitle {
+	font-size: 1.5rem;
+	font-family: Montserrat, sans-serif;
+	font-weight: 700;
+}
+.iconsBlock {
+	display: flex;
+	gap: 2rem;
+	flex-direction: row;
+}
+.iconBlock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 2rem;
+	height: 2rem;
+}
+.favoritesIcon {
+	
+}
+.cartIcon {
+
+}
+.favoritesIcon {
+	
+}
+.icon {
+	cursor: pointer;
+	height: 70%;
+	transition: height .3s ease
+}
+.icon:hover {
+	cursor: pointer;
+	height: 80%;
+	transition: height .3s ease;
+}
