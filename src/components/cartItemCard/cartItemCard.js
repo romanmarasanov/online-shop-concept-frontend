@@ -10,11 +10,11 @@ export const CartItemCard = ({ itemImgSrc, itemName, itemPrice, itemCount }) => 
 				<img className={styles.itemImage} src={itemImgSrc} alt="item-pic" />
 				<div className={styles.itemCountBlock}>
 					<button className={styles.itemCountButton}>
-						<img className={styles.itemCountButtonIcon} src={minusIcon} />
+						<img className={styles.itemCountButtonIcon} src={minusIcon} alt="minus" />
 					</button>
 					<div className={styles.itemCounter}>{itemCount}</div>
 					<button className={styles.itemCountButton}>
-						<img className={styles.itemCountButtonIcon} src={plusIcon} />
+						<img className={styles.itemCountButtonIcon} src={plusIcon} alt="plus" />
 					</button>
 				</div>
 			</div>
@@ -32,7 +32,7 @@ export const CartItemCard = ({ itemImgSrc, itemName, itemPrice, itemCount }) => 
 			</div>
 			<div className={styles.itemDeleteTotalBlock}>
 				<button className={styles.deleteItemButton}>
-					<img src={deleteIcon} />
+					<img src={deleteIcon} alt="delete" />
 				</button>
 				<div className={styles.totalPriceBlock}>
 					<div className={styles.totalPrice}>
