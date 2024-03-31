@@ -2,8 +2,10 @@
 .container {
 	display: flex;
 	justify-content: space-between;
-	height: 4rem;
 	align-items: center;
+
+	height: 4rem;
+	margin-bottom: 2rem;
 }
 .serviceTitleBlock {
 	

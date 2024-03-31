@@ -8,6 +8,7 @@
 	padding: 1.5rem;
 	border-radius: 1rem;
 	
+	background-color: white;
 	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
 }
 .itemImageCounterBlock { 
@@ -17,6 +18,8 @@
 	align-items: center;
 
 	width: 20%;
+	margin-right: 1rem;
+	gap: .5rem
 }
 .itemImage { 
 	max-width: 6rem;
