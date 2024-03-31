@@ -1,12 +1,12 @@
 import styles from "./cartTotal.module.css"
 
-export const CartTotal = () => {
+export const CartTotal = ({ totalSum }) => {
 	return (
 		<div className={styles.container}>
 			<div className={styles.totalBlock}>
 				<span>ИТОГО</span>
 				<div className={styles.totalPrice}>
-					{`₽ ${totalPrice()}`}
+					{`₽ ${totalSum}`}
 				</div>
 			</div>
 			<button className={styles.purchaseButton}>
@@ -15,7 +15,3 @@ export const CartTotal = () => {
 		</div>
 	);
 };
-
-const totalPrice = () => {
-	return 3000;
-}
