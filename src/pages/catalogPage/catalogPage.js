@@ -7,7 +7,6 @@ export const CatalogPage = () => {
 	return (
 		<div>
 			<SiteCeiling />
-			<SiteFooter />
 			<ItemCard 
 				itemImgSrc={"./images/Apple AirPods_1.png"} 
         itemName="Apple AirPods" 
@@ -16,6 +15,7 @@ export const CatalogPage = () => {
         itemDiscountPrice={1500} 
         itemRating={4.7}
 			/>
+			<SiteFooter />
 		</div>
 	);
 };
