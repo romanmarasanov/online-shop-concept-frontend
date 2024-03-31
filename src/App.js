@@ -1,6 +1,5 @@
 import { BrowserRouter } from 'react-router-dom';
 import { AppRoutes } from './routes/routes';
-import './assets/styles.css';
 import './App.css';
 
 const App = () => {
