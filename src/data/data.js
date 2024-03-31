@@ -85,3 +85,20 @@ export const getItems = () => {
 		}
 	]
 }
+
+export const addCartItem = (cartItem) => {
+	if (!window.sessionStorage.cartItems) {
+		window.sessionStorage.cartItems = '[]';
+	}
+	let cartItems = JSON.parse(window.sessionStorage.cartItems);
+	
+
+	const itemFound = cartItems.find(item => item.id === cartItem.id);
+	if (itemFound) {
+		cartItems = cartItems.map(item => item.id === cartItem.id ? {...item, count: item.count + 1} : item)
+	} else {
+		cartItems.push({...cartItem, count: 1});
+	}
+	window.sessionStorage.cartItems = JSON.stringify(cartItems);
+	console.log(cartItems)
+}

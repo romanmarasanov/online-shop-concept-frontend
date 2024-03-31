@@ -1,7 +1,15 @@
 import styles from "./itemCard.module.css"
 import starIcon from "../../assets/icons/Star.svg"
+import { addCartItem } from "../../data/data"
 
-export const ItemCard = ({ itemImgSrc, itemName, itemPrice, hasDiscount, itemDiscountPrice, itemRating }) => {
+export const ItemCard = ({ id, itemImgSrc, itemName, itemPrice, hasDiscount, itemDiscountPrice, itemRating }) => {
+	
+	const addItemToCart = () => {
+		addCartItem(
+			{ id, itemImgSrc, itemName, itemPrice, hasDiscount, itemDiscountPrice, itemRating }
+		)
+	}
+	
 	return (
 		<div className={styles.container}>
 			<img className={styles.itemImage} src={itemImgSrc} alt="item-pic" />
@@ -29,7 +37,7 @@ export const ItemCard = ({ itemImgSrc, itemName, itemPrice, hasDiscount, itemDis
 							: null}
 					</div>
 					<div className={styles.buyButtonBlock}>
-						<button className={styles.buyButton}>Купить</button>
+						<button className={styles.buyButton} onClick={addItemToCart}>Купить</button>
 					</div>
 				</div>
 			</div>
