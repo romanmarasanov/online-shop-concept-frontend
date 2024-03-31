@@ -10,7 +10,7 @@ export const getItems = () => {
 					itemName: "Apple AirPods",
 					itemPrice: 2200,
 					hasDiscount: true,
-					itemDiscountPrice: 1500,
+					itemWithoutDiscountPrice: 3500,
 					itemRating: 4.8,
 
 				},
@@ -20,7 +20,7 @@ export const getItems = () => {
 					itemName: "Apple AirPods",
 					itemPrice: 2500,
 					hasDiscount: true,
-					itemDiscountPrice: 1500,
+					itemWithoutDiscountPrice: 3500,
 					itemRating:4.9,
 					
 				},
@@ -30,7 +30,7 @@ export const getItems = () => {
 					itemName: "Apple BYZ",
 					itemPrice: 3000,
 					hasDiscount: false,
-					itemDiscountPrice: 0,
+					itemWithoutDiscountPrice: 0,
 					itemRating:4.7,
 					
 				},
@@ -40,7 +40,7 @@ export const getItems = () => {
 					itemName: "Apple AirPods",
 					itemPrice: 2000,
 					hasDiscount: true,
-					itemDiscountPrice: 1500,
+					itemWithoutDiscountPrice: 3500,
 					itemRating:4.75,
 					
 				},
@@ -50,7 +50,7 @@ export const getItems = () => {
 					itemName: "Apple AirPods",
 					itemPrice: 2000,
 					hasDiscount: true,
-					itemDiscountPrice: 1500,
+					itemWithoutDiscountPrice: 4500,
 					itemRating:5,
 					
 				},
@@ -66,7 +66,7 @@ export const getItems = () => {
 					itemName: "Apple AirPods",
 					itemPrice: 2200,
 					hasDiscount: true,
-					itemDiscountPrice: 1500,
+					itemWithoutDiscountPrice: 2500,
 					itemRating: 4.8,
 
 				},
@@ -76,7 +76,7 @@ export const getItems = () => {
 					itemName: "Apple AirPods",
 					itemPrice: 2500,
 					hasDiscount: true,
-					itemDiscountPrice: 1500,
+					itemWithoutDiscountPrice: 5500,
 					itemRating:4.9,
 					
 				},
@@ -86,19 +86,31 @@ export const getItems = () => {
 	]
 }
 
-export const addCartItem = (cartItem) => {
+export const addCartItem = (cartItem, addPieces) => {
 	if (!window.sessionStorage.cartItems) {
 		window.sessionStorage.cartItems = '[]';
 	}
 	let cartItems = JSON.parse(window.sessionStorage.cartItems);
 	
-
 	const itemFound = cartItems.find(item => item.id === cartItem.id);
 	if (itemFound) {
-		cartItems = cartItems.map(item => item.id === cartItem.id ? {...item, count: item.count + 1} : item)
+		cartItems = cartItems.map(item => item.id === cartItem.id ? {...item, count: item.count + addPieces} : item)
 	} else {
 		cartItems.push({...cartItem, count: 1});
 	}
+	if (itemFound && itemFound.count + addPieces <= 0) {
+		cartItems = cartItems.filter(item => item.id !== itemFound.id);
+	}
+
 	window.sessionStorage.cartItems = JSON.stringify(cartItems);
-	console.log(cartItems)
+}
+
+export const getCartItems = () => {
+	return window.sessionStorage.cartItems ? JSON.parse(window.sessionStorage.cartItems) : [];
+}
+
+export const getCounters = () => {
+	return window.sessionStorage.cartItems
+	? {favorites: 0, cart: JSON.parse(window.sessionStorage.cartItems).reduce((total, item) => total + item.count, 0)} 
+	: {favorites: 0, cart: 0}  
 }

@@ -2,42 +2,40 @@ import styles from "./itemCard.module.css"
 import starIcon from "../../assets/icons/Star.svg"
 import { addCartItem } from "../../data/data"
 
-export const ItemCard = ({ id, itemImgSrc, itemName, itemPrice, hasDiscount, itemDiscountPrice, itemRating }) => {
+export const ItemCard = ({ item }) => {
 	
-	const addItemToCart = () => {
-		addCartItem(
-			{ id, itemImgSrc, itemName, itemPrice, hasDiscount, itemDiscountPrice, itemRating }
-		)
+	const addItem = () => {
+		addCartItem(item, 1);
 	}
 	
 	return (
 		<div className={styles.container}>
-			<img className={styles.itemImage} src={itemImgSrc} alt="item-pic" />
+			<img className={styles.itemImage} src={item.itemImgSrc} alt="item-pic" />
 			<div className={styles.itemInfoBlock}>
 				<div className={styles.itemNameRatingColumn}>
 					<div className={styles.itemNameBlock}>
-						<span className={styles.itemName}>{itemName}</span>
+						<span className={styles.itemName}>{item.itemName}</span>
 					</div>
 					<div className={styles.itemRatingBlock}>
 						<img src={starIcon} alt="star" />
 						<span className={styles.itemRating}>
-							{itemRating}
+							{item.itemRating}
 						</span>
 					</div>
 				</div>
 				<div className={styles.itemnPriceBuyButtonColumn}>
 					<div className={styles.itemPriceBlock}>
 						<div className={styles.itemPrice}>
-							{`${hasDiscount ? itemDiscountPrice : itemPrice} ₽`}
+							{`${item.itemPrice} ₽`}
 						</div>
-						{hasDiscount
+						{item.hasDiscount
 							? <div className={styles.itemPriceWithoutDiscount}>
-								{`${itemPrice} ₽`}
+								{`${item.itemWithoutDiscountPrice} ₽`}
 							</div>
 							: null}
 					</div>
 					<div className={styles.buyButtonBlock}>
-						<button className={styles.buyButton} onClick={addItemToCart}>Купить</button>
+						<button className={styles.buyButton} onClick={addItem}>Купить</button>
 					</div>
 				</div>
 			</div>

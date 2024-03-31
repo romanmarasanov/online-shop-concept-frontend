@@ -10,11 +10,10 @@ export const CatalogPage = () => {
 	
 	const [categories, setCategories] = useState([]);
 	
+	// TODO: сейчас этот вариант порождает бесконечный луп рендера, но я не нашёл как это пофиксить, чтобы счетчики обновлялись динамически
 	useEffect(() => {
-		const dataCategories = getItems();
-		setCategories(dataCategories);
-		console.log(getItems());
-	}, []);
+		setCategories(getItems());
+	}, window.sessionStorage.cartItems ? JSON.parse(window.sessionStorage.cartItems) : []);
 	
 	return (
 		<div className={pageContainerStyles.pageContainer}>
@@ -29,13 +28,7 @@ export const CatalogPage = () => {
 						<div className={styles.itemsBlock}>
 							{category.items.map(item => 
 								<ItemCard 
-									id={item.id}
-									itemImgSrc={item.itemImgSrc}
-									itemName={item.itemName}
-									itemPrice={item.itemPrice}
-									hasDiscount={item.hasDiscount}
-									itemDiscountPrice={item.itemDiscountPrice}
-									itemRating={item.itemRating}
+									item={item}
 								/>
 							)}
 						</div>
