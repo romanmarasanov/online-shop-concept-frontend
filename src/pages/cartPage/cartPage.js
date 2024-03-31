@@ -1,4 +1,5 @@
 import styles from "./cartPage.module.css"
+import pageContainerStyles from "../../pageContainer.module.css"
 import { CartItemCard } from '../../components/cartItemCard/cartItemCard';
 import { SiteCeiling } from '../../components/ceiling/siteCeiling';
 import { SiteFooter } from '../../components/footer/siteFooter';
@@ -6,7 +7,7 @@ import { CartTotal } from './cartTotal/cartTotal';
 
 export const CartPage = () => {
 	return (
-		<div className={styles.container}>
+		<div className={pageContainerStyles.pageContainer}>
 			<SiteCeiling />
 			<div className={styles.content}>
 				<CartItemCard

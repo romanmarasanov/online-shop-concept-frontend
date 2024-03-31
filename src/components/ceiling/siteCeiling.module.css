@@ -21,7 +21,6 @@
 	flex-direction: row;
 }
 .iconBlock {
-	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 2rem;
@@ -45,4 +44,22 @@
 	cursor: pointer;
 	height: 80%;
 	transition: height .3s ease;
+}
+.counter {
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+
+	bottom: 1.8rem;
+	left: 1rem;
+	height: 1rem;
+	width: 1rem;
+	border-radius: .5rem;
+	font-size: small;
+	user-select: none;
+	pointer-events: none;
+
+	background-color: orange;
+	color: white;
 }

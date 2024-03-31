@@ -4,11 +4,10 @@
 	justify-content: space-between;
 	align-items: center;
 
-	height: 20rem;
-	width: 16rem;
 	padding: 1.5rem;
 	border-radius: 1.5rem;
 	
+	background-color: white;
 	box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
 }
 .itemImage {
@@ -26,6 +25,8 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-start;
+
+	gap:1rem;
 }
 .itemNameBlock {
 
@@ -69,5 +70,9 @@
 
 }
 .buyButton {
-
+	font-weight: 600;
+}
+.buyButton:hover {
+	cursor: pointer;
+	text-shadow: 1px 1px 4px gainsboro;;
 }
