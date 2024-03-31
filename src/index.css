@@ -18,6 +18,7 @@
 	background-color: rgba(234, 234, 234, 1);
 	color: black;
 	height: 100vh;
+  user-select: none;
 	
 }
 
