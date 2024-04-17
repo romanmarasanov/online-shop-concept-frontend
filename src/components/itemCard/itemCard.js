@@ -1,15 +1,14 @@
 import styles from "./itemCard.module.css"
 import starIcon from "../../assets/icons/Star.svg"
-import { addCartItem } from "../../data/data"
 
-export const ItemCard = ({ item }) => {
-	
+export const ItemCard = ({ item, onCartChange }) => {
+
 	const addItem = () => {
-		addCartItem(item, 1);
+		onCartChange(item, 1);
 	}
-	
+
 	return (
-		<div className={styles.container}>
+		<div className={styles.container} >
 			<img className={styles.itemImage} src={item.itemImgSrc} alt="item-pic" />
 			<div className={styles.itemInfoBlock}>
 				<div className={styles.itemNameRatingColumn}>

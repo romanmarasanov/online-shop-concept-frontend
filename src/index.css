@@ -20,7 +20,16 @@
 	height: 100vh;
   user-select: none;
 	overflow: scroll;
+	overflow-x: hidden;
+	
+
+	-ms-overflow-style: none;
+	scrollbar-width: none; 
+
 }
+/* #root::-webkit-scrollbar {
+	display: none;
+} */
 
 body {
   margin: 0;

@@ -1,18 +1,11 @@
 import styles from "./siteCeiling.module.css"
 import favoritesIcon from "../../assets/icons/Like.svg"
 import cartIcon from "../../assets/icons/Cart.svg"
-import { getCounters } from "../../data/data"
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export const SiteCeiling = () => {
+export const SiteCeiling = ( {cart} ) => {
 
-	const [counters, setCounters] = useState({favorites: 0, cart: 0});
-
-		// TODO: сейчас этот вариант порождает бесконечный луп рендера, но я не нашёл как это пофиксить, чтобы счетчики обновлялись динамически
-	useEffect(() => {
-		setCounters(getCounters());
-	}, window.sessionStorage.cartItems ? JSON.parse(window.sessionStorage.cartItems) : [])
+	const counters = {favorites: 0, cart: cart ? cart.reduce((count, current) => count + current.count, 0) : 0};
 
 	return (
 		<div className={styles.container}>
