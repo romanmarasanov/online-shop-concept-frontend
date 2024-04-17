@@ -2,20 +2,23 @@ import styles from "./cartItemCard.module.css"
 import deleteIcon from "../../assets/icons/Delete.svg"
 import minusIcon from "../../assets/icons/Minus.svg"
 import plusIcon from "../../assets/icons/Vector.svg"
-import { addCartItem } from "../../data/data";
 
-export const CartItemCard = ({ item }) => {
+export const CartItemCard = ({ item, onCartChange }) => {
 	
 	const addItem = () => {
-		addCartItem(item, 1);
+		onCartChange(item, 1);
 	}
 
 	const removeItem = () => {
-		addCartItem(item, -1);
+		onCartChange(item, -1);
 	}
+
+	const removeItems = () => {
+		onCartChange(item, -item.count);
+	} 
 	
 	return (
-		<div className={styles.container}>
+		<div className={styles.container} >
 			<div className={styles.itemImageCounterBlock}>
 				<img className={styles.itemImage} src={item.itemImgSrc} alt="item-pic" />
 				<div className={styles.itemCountBlock}>
@@ -41,7 +44,7 @@ export const CartItemCard = ({ item }) => {
 				</div>
 			</div>
 			<div className={styles.itemDeleteTotalBlock}>
-				<button className={styles.deleteItemButton}>
+				<button className={styles.deleteItemButton} onClick={removeItems}>
 					<img src={deleteIcon} alt="delete" />
 				</button>
 				<div className={styles.totalPriceBlock}>
